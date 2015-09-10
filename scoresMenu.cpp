@@ -69,17 +69,17 @@ void ScoresMenu::handleEvents()
 		{
 			if (event.key.code == sf::Keyboard::Down)
 			{
-				if (currentOption < 0)
+				/*if (currentOption < 0)
 				{
 					currentOption++;
-				}
+				}*/
 			}
 			else if (event.key.code == sf::Keyboard::Up)
 			{
-				if (currentOption > 0)
+				/*if (currentOption > 0)
 				{
 					currentOption--;
-				}
+				}*/
 			}
 			else if (event.key.code == sf::Keyboard::Return)
 			{

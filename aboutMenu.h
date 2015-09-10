@@ -14,7 +14,7 @@ private:
 	sf::Texture buttonsTexture;
 	sf::Font metalLord;		//font do gry
 	std::vector<sf::Sprite> interactiveElements;
-	int currentOption;
+	unsigned int currentOption;
 	sf::Text logoText;
 	sf::Text aboutText;
 	sf::Texture backgroundTexture;	//tekstura t³a

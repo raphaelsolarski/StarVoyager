@@ -63,14 +63,14 @@ void AboutMenu::handleEvents()
 			//strza³ka w dó³
 			if (event.key.code == sf::Keyboard::Down)
 			{
-				if (currentOption < 0)
-					currentOption++;
+				/*if (currentOption < 0)
+					currentOption++;*/
 			}
 			//strza³ka w górê
 			else if (event.key.code == sf::Keyboard::Up)
 			{
-				if (currentOption > 0)
-					currentOption--;
+				/*if (currentOption > 0)
+					currentOption--;*/
 			}
 			else if (event.key.code == sf::Keyboard::Return)
 			{

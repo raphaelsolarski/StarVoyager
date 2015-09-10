@@ -85,8 +85,9 @@ void GameState::changeState()
 		case GAME_STATE_EXIT:
 			stateID = GAME_STATE_EXIT;
 			break;
-
-		}
+		default:
+			break;			
+			}
 		nextState = GAME_STATE_NULL;
 	}
 }
