@@ -106,24 +106,24 @@ void Game::logic()
 	std::cout << "playerMissiles vector size:" << playerMissiles.size() << std::endl;
 	std::cout << std::endl;*/
 
-	//sprawdzam czy okno nie zosta³o zamkniête
+	//sprawdzam czy okno nie zostaï¿½o zamkniï¿½te
 	if (!window->isOpen())
 		setNextState(GAME_STATE_EXIT);
 
-	//sprawdzam czy level nie zosta³ ukoñczony
+	//sprawdzam czy level nie zostaï¿½ ukoï¿½czony
 	if (currentRow == rowsInMap)
 	{
 		setNextState(GAME_STATE_LEVEL_FINISHED_MENU);
 	}
 
-	//sprawdzam czy graczowi pozosta³y jeszcze ¿ycia
+	//sprawdzam czy graczowi pozostaï¿½y jeszcze ï¿½ycia
 	if (player.getLives() == 0)
 	{
-		//gracz przegra³
+		//gracz przegraï¿½
 		setNextState(GAME_STATE_DEFEAT_MENU);
 	}
 
-	//aktualizujê numer wiersza oraz jeœli jest to potrzebne wczytujê nowy
+	//aktualizujï¿½ numer wiersza oraz jeï¿½li jest to potrzebne wczytujï¿½ nowy
 	if (framesBetweenRowsCounter == 15)
 	{
 		currentRow++;
@@ -132,10 +132,10 @@ void Game::logic()
 	}
 	else
 	{
-		framesBetweenRowsCounter++;		//inkrementujê licznik klatek od ostatniego wczytania wiersza
+		framesBetweenRowsCounter++;		//inkrementujï¿½ licznik klatek od ostatniego wczytania wiersza
 	}
 
-	//przesuwam mapê w dó³
+	//przesuwam mapï¿½ w dï¿½ï¿½
 	if (secondBackgroundPosition.y == 0)
 		firstBackgroundPosition.y = -1600.0;
 
@@ -147,10 +147,10 @@ void Game::logic()
 	secondBackground.setPosition(secondBackgroundPosition);
 	secondBackgroundPosition.y = secondBackgroundPosition.y + 1.0f;
 
-	//odœwierzam licznik punktów
+	//odï¿½wierzam licznik punktï¿½w
 	scoresText.setString(sf::String("scores: " + std::to_string(scores)));
 	
-	//redukujê cooldowny
+	//redukujï¿½ cooldowny
 	player.reduceCooldown();
 	
 	for (std::vector<Enemy>::iterator it = enemies.begin(); it != enemies.end(); it++)
@@ -158,14 +158,14 @@ void Game::logic()
 		it->reduceCooldown();
 	}
 
-	//rzut o strza³ dla przeciwników
+	//rzut o strzaï¿½ dla przeciwnikï¿½w
 	for (std::vector<Enemy>::iterator it = enemies.begin(); it != enemies.end(); it++)
 	{
-		//sprawdzam czy dany przeciwnik ma mo¿liwoœæ strza³u
+		//sprawdzam czy dany przeciwnik ma moï¿½liwoï¿½ï¿½ strzaï¿½u
 		if (it->getFireCooldown() == 0)
 		{
 			//rzut losowy
-			if ((rand() % 200) == 0)	//jeœli wylosowano liczbê podzieln¹ przez 200  to ognia
+			if ((rand() % 200) == 0)	//jeï¿½li wylosowano liczbï¿½ podzielnï¿½ przez 200  to ognia
 			{
 				Missile newMissile = it->fire();
 				newMissile.setTexture(missileTexture);
@@ -198,42 +198,42 @@ void Game::logic()
 	//update asteroid
 	for (std::vector<Asteroid>::iterator it = asteroids.begin(); it != asteroids.end();)
 	{
-		//dokonuje update'a i sprawdzam czy asteroida nie opóœci³a mapy
+		//dokonuje update'a i sprawdzam czy asteroida nie opï¿½ï¿½ciï¿½a mapy
 		if (!it->update())
 		{
-			//asteroida opóœci³a mapê
-			it = asteroids.erase(it);	//usuwam element z vectora oraz pobieram iterator do nastêpnego elementu
+			//asteroida opï¿½ï¿½ciï¿½a mapï¿½
+			it = asteroids.erase(it);	//usuwam element z vectora oraz pobieram iterator do nastï¿½pnego elementu
 		}
 		else
 		{
-			//asteroida znajduje siê na mapie
+			//asteroida znajduje siï¿½ na mapie
 			it++;
 		}
 	}
 
-	//update przeciwników
+	//update przeciwnikï¿½w
 	for (std::vector<Enemy>::iterator it = enemies.begin(); it != enemies.end();)
 	{
-		//dokonuje update'a i sprawdzam czy przeciwnik nie opóœci³ mapy
+		//dokonuje update'a i sprawdzam czy przeciwnik nie opï¿½ï¿½ciï¿½ mapy
 		if (!it->update())
 		{
-			//przeciwnik opóœci³ mapê
-			it = enemies.erase(it);		//element jest usuwany z vektora, a funkcja zwraca iterator do nastêpnego elementu
+			//przeciwnik opï¿½ï¿½ciï¿½ mapï¿½
+			it = enemies.erase(it);		//element jest usuwany z vektora, a funkcja zwraca iterator do nastï¿½pnego elementu
 		}
 		else
 		{
-			//przeciwnik wci¹¿ jest na mapie
+			//przeciwnik wciï¿½ï¿½ jest na mapie
 			it++;
 		}
 	}
 
-	//update pozycji pocisków przeciwników
+	//update pozycji pociskï¿½w przeciwnikï¿½w
 	for (std::vector<Missile>::iterator it = enemyMissiles.begin(); it != enemyMissiles.end();)
 	{
 		if (!it->update())
 		{
-			//pocisk wylecia³ za mapê
-			it = enemyMissiles.erase(it);	//element jest usuwany z vektora, a funkcja zwraca iterator do nastêpnego elementu
+			//pocisk wyleciaï¿½ za mapï¿½
+			it = enemyMissiles.erase(it);	//element jest usuwany z vektora, a funkcja zwraca iterator do nastï¿½pnego elementu
 		}
 		else
 		{
@@ -241,13 +241,13 @@ void Game::logic()
 		}
 	}
 
-	//update pozycji pocisków gracza
+	//update pozycji pociskï¿½w gracza
 	for (std::vector<Missile>::iterator it = playerMissiles.begin(); it != playerMissiles.end();)
 	{
 		if (!it->update())
 		{
-			//pocisk wylecia³ za mapê
-			it = playerMissiles.erase(it);	//element jest usuwany z vektora, a funkcja zwraca iterator do nastêpnego elementu
+			//pocisk wyleciaï¿½ za mapï¿½
+			it = playerMissiles.erase(it);	//element jest usuwany z vektora, a funkcja zwraca iterator do nastï¿½pnego elementu
 		}
 		else
 		{
@@ -260,21 +260,21 @@ void Game::logic()
 	//pociski gracza ->asteroidy, przeciwnicy
 	for (std::vector<Missile>::iterator playerMissile = playerMissiles.begin(); playerMissile != playerMissiles.end();)
 	{
-		bool collisionFlag = false;	//flaga potrzebna do usuniêcia pocisku(zewnêtrzna pêtla)
+		bool collisionFlag = false;	//flaga potrzebna do usuniï¿½cia pocisku(zewnï¿½trzna pï¿½tla)
 		for (std::vector<Asteroid>::iterator asteroid = asteroids.begin(); asteroid != asteroids.end();)
 		{
-			//sprawdzam czy dosz³o do kolizji
+			//sprawdzam czy doszï¿½o do kolizji
 			if (playerMissile->checkCollision(&(*asteroid)))
 			{
-				//dosz³o - niszczê pocisk(ustawiam flagê), asteroidê oraz koñczê pêtlê
+				//doszï¿½o - niszczï¿½ pocisk(ustawiam flagï¿½), asteroidï¿½ oraz koï¿½czï¿½ pï¿½tlï¿½
 				asteroids.erase(asteroid);
-				scores += SCORES_PER_ASTEROID;	//dodajê punkty za zniszczenie asteroidy
+				scores += SCORES_PER_ASTEROID;	//dodajï¿½ punkty za zniszczenie asteroidy
 				collisionFlag = true;
 				break;
 			}
 			else
 			{
-				//nie dosz³o
+				//nie doszï¿½o
 				asteroid++;
 			}
 		}
@@ -282,7 +282,7 @@ void Game::logic()
 		//sprawdzam czy flaga kolizji nie jest ustawiona
 		if (collisionFlag)
 		{
-			//niszczê pocisk
+			//niszczï¿½ pocisk
 			playerMissile = playerMissiles.erase(playerMissile);
 			continue;
 		}
@@ -291,51 +291,51 @@ void Game::logic()
 			//sprawdzm teraz kolizje z innymi statkami
 			for (std::vector<Enemy>::iterator enemy = enemies.begin(); enemy != enemies.end();)
 			{
-				//sprawdzam czy dosz³o do kolizji
+				//sprawdzam czy doszï¿½o do kolizji
 				if (playerMissile->checkCollision(&(*enemy)))
 				{
-					//dosz³o - niszczê pocisk(ustawiam flagê), asteroidê oraz koñczê pêtlê
+					//doszï¿½o - niszczï¿½ pocisk(ustawiam flagï¿½), asteroidï¿½ oraz koï¿½czï¿½ pï¿½tlï¿½
 					enemies.erase(enemy);
-					scores += SCORES_PER_ENEMY;	//dodajê punkty za zniszczenie przeciwnika
+					scores += SCORES_PER_ENEMY;	//dodajï¿½ punkty za zniszczenie przeciwnika
 					collisionFlag = true;
 					break;
 				}
 				else
 				{
-					//nie dosz³o
+					//nie doszï¿½o
 					enemy++;
 				}
 			}
 
 			if (collisionFlag)
 			{
-				//niszczê pocisk
+				//niszczï¿½ pocisk
 				playerMissile = playerMissiles.erase(playerMissile);
 				continue;
 			}
 			{
-				//ten pocisk z niczym siê nie zderzy³
+				//ten pocisk z niczym siï¿½ nie zderzyï¿½
 				playerMissile++;
 			}
 		}
 	}
 
-	//kolizje obcych pocisków ze statkiem gracza
+	//kolizje obcych pociskï¿½w ze statkiem gracza
 	for (std::vector<Missile>::iterator missile = enemyMissiles.begin(); missile != enemyMissiles.end();)
 	{
-		//sprawdzam czy dosz³o do kolizji
+		//sprawdzam czy doszï¿½o do kolizji
 		if (player.checkCollision(&(*missile)))
 		{
-			//dosz³o do kolizji
-			//niszczê pocisk
+			//doszï¿½o do kolizji
+			//niszczï¿½ pocisk
 			missile = enemyMissiles.erase(missile);
 
-			//odbieram graczowi jedno ¿ycie
+			//odbieram graczowi jedno ï¿½ycie
 			player.oneLiveLess();
 		}
 		else
 		{
-			//nie dosz³o do kolizji
+			//nie doszï¿½o do kolizji
 			missile++;
 		}
 	}
@@ -343,39 +343,39 @@ void Game::logic()
 	//kolizje asteroid ze statkiem gracza
 	for (std::vector<Asteroid>::iterator asteroid = asteroids.begin(); asteroid != asteroids.end();)
 	{
-		//sprawdzam czy dosz³o do kolizji
+		//sprawdzam czy doszï¿½o do kolizji
 		if (player.checkCollision(&(*asteroid)))
 		{
-			//dosz³o do kolizji
-			//niszczê asteroidê
+			//doszï¿½o do kolizji
+			//niszczï¿½ asteroidï¿½
 			asteroid = asteroids.erase(asteroid);
 
-			//odbieram graczowi jedno ¿ycie
+			//odbieram graczowi jedno ï¿½ycie
 			player.oneLiveLess();
 		}
 		else
 		{
-			//nie dosz³o do kolizji
+			//nie doszï¿½o do kolizji
 			asteroid++;
 		}
 	}
 
-	//kolizje obcych statków ze statkiem gracza
+	//kolizje obcych statkï¿½w ze statkiem gracza
 	for (std::vector<Enemy>::iterator enemy = enemies.begin(); enemy != enemies.end();)
 	{
-		//sprawdzam czy dosz³o do kolizji
+		//sprawdzam czy doszï¿½o do kolizji
 		if (player.checkCollision(&(*enemy)))
 		{
-			//dosz³o do kolizji
-			//niszczê statek
+			//doszï¿½o do kolizji
+			//niszczï¿½ statek
 			enemy = enemies.erase(enemy);
 
-			//odbieram graczowi jedno ¿ycie
+			//odbieram graczowi jedno ï¿½ycie
 			player.oneLiveLess();
 		}
 		else
 		{
-			//nie dosz³o do kolizji
+			//nie doszï¿½o do kolizji
 			enemy++;
 		}
 	}
@@ -383,38 +383,38 @@ void Game::logic()
 
 void Game::render()
 {
-	//rysujê t³o
+	//rysujï¿½ tï¿½o
 	window->draw(firstBackground);
 	window->draw(secondBackground);
 
-	//rysujê asteroidy
+	//rysujï¿½ asteroidy
 	for (unsigned int i = 0; i < asteroids.size(); i++)
 	{
 		window->draw(asteroids[i]);
 	}
 
-	//rysujê przeciwników
+	//rysujï¿½ przeciwnikï¿½w
 	for (unsigned int i = 0; i < enemies.size(); i++)
 	{
 		window->draw(enemies[i]);
 	}
 
-	//rysujê pociski gracza
+	//rysujï¿½ pociski gracza
 	for (unsigned int i = 0; i < playerMissiles.size(); i++)
 	{
 		window->draw(playerMissiles[i]);
 	} 
 
-	//rysujê pociski przeciwników
+	//rysujï¿½ pociski przeciwnikï¿½w
 	for (unsigned int i = 0; i < enemyMissiles.size(); i++)
 	{
 		window->draw(enemyMissiles[i]);
 	}
 
-	//rysujê gracza
+	//rysujï¿½ gracza
 	window->draw(player);
 
-	//rysujê interfejs
+	//rysujï¿½ interfejs
 	for (unsigned int i = 0; i < player.getLives(); i++)
 	{
 		//serduszka
@@ -428,32 +428,32 @@ void Game::render()
 	window->clear(sf::Color(128, 128, 128));
 }
 
-//funkcja wczytuj¹ca kolejny wiersz
+//funkcja wczytujï¿½ca kolejny wiersz
 void Game::loadRow()
 {
 	//sprawdzam czy obecny wiersz nie figuruje w pliku
 	if (nextRowInFile == currentRow)
 	{
-		//jeœli tak to go wczytujê
+		//jeï¿½li tak to go wczytujï¿½
 		char actualSymbol;
 		for (int i = 0; i < 10; i++)
 		{
-			//wczytujê kolejny znak
+			//wczytujï¿½ kolejny znak
 			mapFile >> actualSymbol;
 
 			//sprawdzam czy jest to asteroida
 			if (actualSymbol == 'A')
 			{
-				//przygotowujê now¹ asteroidkê
-				Asteroid newAsteroid(sf::Vector2f(64.0f * i, -64.0f));		//wczytywany wiersz znajduje siê 64 px przed polem widzenia
+				//przygotowujï¿½ nowï¿½ asteroidkï¿½
+				Asteroid newAsteroid(sf::Vector2f(64.0f * i, -64.0f));		//wczytywany wiersz znajduje siï¿½ 64 px przed polem widzenia
 				newAsteroid.setTexture(asteroidTexture);
 				newAsteroid.setTextureRect(sf::IntRect(sf::Vector2i(0, 0), ASTEROID_SIZE));
 				asteroids.push_back(newAsteroid);
 			}
 			else if (actualSymbol == 'E')
 			{	//przeciwnik?
-				//przygotowujê nowego przeciwnika
-				Enemy newEnemy(sf::Vector2f(64.0f * i, -64.0f));		//wczytywany wiersz znajduje siê 64 px przed polem widzenia
+				//przygotowujï¿½ nowego przeciwnika
+				Enemy newEnemy(sf::Vector2f(64.0f * i, -64.0f));		//wczytywany wiersz znajduje siï¿½ 64 px przed polem widzenia
 				newEnemy.setTexture(enemyTexture);
 				enemies.push_back(newEnemy);
 			}
@@ -461,7 +461,7 @@ void Game::loadRow()
 		//sprawdzam czy to nie koniec pliku
 		if (!mapFile.eof())
 		{
-			//wczytujê numer kolejnego wiersza
+			//wczytujï¿½ numer kolejnego wiersza
 			mapFile >> nextRowInFile;
 		}
 	}

@@ -1,4 +1,4 @@
-//plik nag³ówkowy klasy gracza
+//plik nagï¿½ï¿½wkowy klasy gracza
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "collidable.h"
@@ -9,15 +9,15 @@ class Player : public Collidable
 public:
 	Player();	//konstruktor
 	//~Player();	//destruktor
-	Missile fire();	//funkcja strza³u(zwraca stworzony pocisk)
-	void reduceCooldown();	//funkcja wywo³ywana co klatê w celu zmniejszenia cooldownu
-	int getFireCooldown();	//getter do pola fireCooldown(potrzebny aby klasa game wiedzia³a kiedy mo¿na zaakceptowaæ strza³)
+	Missile fire();	//funkcja strzaï¿½u(zwraca stworzony pocisk)
+	void reduceCooldown();	//funkcja wywoï¿½ywana co klatï¿½ w celu zmniejszenia cooldownu
+	int getFireCooldown();	//getter do pola fireCooldown(potrzebny aby klasa game wiedziaï¿½a kiedy moï¿½na zaakceptowaï¿½ strzaï¿½)
 	sf::Vector2i getSize();		//getter do size;
-	unsigned int getLives();	//zwraca liczbê ¿yæ
-	void oneLiveLess();			//zaraz kopniesz w kalendarz - jedno ¿ycie mniej
+	unsigned int getLives();	//zwraca liczbï¿½ ï¿½yï¿½
+	void oneLiveLess();			//zaraz kopniesz w kalendarz - jedno ï¿½ycie mniej
 private:
-	unsigned int lives;			//liczba ¿yæ gracza
+	unsigned int lives;			//liczba ï¿½yï¿½ gracza
 	sf::Texture playerTexture;	//tekstura statku gracza
 	sf::Vector2i size;			//rozmiar statku
-	int fireCooldown;			//cooldown strza³u
+	int fireCooldown;			//cooldown strzaï¿½u
 };

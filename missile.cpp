@@ -1,4 +1,4 @@
-//plik implementuj¹cy klasê pocisku
+//plik implementujï¿½cy klasï¿½ pocisku
 #include <iostream>
 #include "missile.h"
 #include "constants.h"
@@ -11,37 +11,37 @@ Missile::Missile(sf::Vector2f position, sf::Vector2i size, float speed, sf::Vect
 	this->speed = speed;
 	this->direction = direction;
 
-	//ustawiam pozycjê startow¹
+	//ustawiam pozycjï¿½ startowï¿½
 	setPosition(position);
 
-	//wczytujê teksturê pocisku
+	//wczytujï¿½ teksturï¿½ pocisku
 	if (!missileTexture.loadFromFile("Graphics/missile.png"))
 		std::cout << "missile.png loading failed" << std::endl;
 }
 
-//metoda zwracaj¹ca rozmiar pocisku
+//metoda zwracajï¿½ca rozmiar pocisku
 sf::Vector2i Missile::getSize()
 {
 	return size;
 }
 
-//metoda zwracaj¹ca szybkoœæ pocisku(pociski mog¹ mieæ ró¿n¹ prêdkoœc)
+//metoda zwracajï¿½ca szybkoï¿½ï¿½ pocisku(pociski mogï¿½ mieï¿½ rï¿½ï¿½nï¿½ prï¿½dkoï¿½c)
 float Missile::getSpeed()
 {
 	return speed;
 }
 
-//metoda aktualizuj¹ca pozycjê pocisku
+//metoda aktualizujï¿½ca pozycjï¿½ pocisku
 bool Missile::update()
 {
 	//przesuwam pocisk
 	move(sf::Vector2f(MISSILE_SPEED * direction.x, MISSILE_SPEED * direction.y));
 
-	//sprawdzam czy pocisk wylecia³ za mapê
+	//sprawdzam czy pocisk wyleciaï¿½ za mapï¿½
 	if (getPosition().y < -MISSILE_SIZE.y || getPosition().y >= SCREEN_HEIGHT)
 	{
 		return false;
 	}
-	//jeœli pocisk znajduje siê na mapie to zwracam true
+	//jeï¿½li pocisk znajduje siï¿½ na mapie to zwracam true
 	return true;
 }

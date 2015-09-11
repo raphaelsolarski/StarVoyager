@@ -1,6 +1,6 @@
 #include "gameState.h"
 
-// Tutaj nale¿y dodaæ include'y wszystkich wykorzystywanych state'ów w grze
+// Tutaj naleï¿½y dodaï¿½ include'y wszystkich wykorzystywanych state'ï¿½w w grze
 #include "game.h"
 #include "mainMenu.h"
 #include "pauseMenu.h"
@@ -9,14 +9,14 @@
 #include "levelFinishedMenu.h"
 #include "scoresMenu.h"
 
-//pocz¹tkowe ustawienie zmiennych statycznych
-int GameState::nextLevel = 1; //nastêpny level jest domyœlnie ustawiony na level pierwszy
+//poczï¿½tkowe ustawienie zmiennych statycznych
+int GameState::nextLevel = 1; //nastï¿½pny level jest domyï¿½lnie ustawiony na level pierwszy
 GameStates GameState::stateID = GAME_STATE_NULL;
 GameStates GameState::nextState = GAME_STATE_NULL;
 GameState* GameState::currentState = nullptr;
 GameState* GameState::sleepedState = nullptr;
 sf::RenderWindow* GameState::window = nullptr;
-sf::Vector2f GameState::firstBackgroundPosition = sf::Vector2f(0, 0);	//oba pola s¹ potrzebne do p³ynnego przechodzenia miêdzy oknami menu
+sf::Vector2f GameState::firstBackgroundPosition = sf::Vector2f(0, 0);	//oba pola sï¿½ potrzebne do pï¿½ynnego przechodzenia miï¿½dzy oknami menu
 sf::Vector2f GameState::secondBackgroundPosition = sf::Vector2f(0, 0);
 
 void GameState::changeState()
@@ -29,14 +29,14 @@ void GameState::changeState()
 		}
 		switch (nextState)
 		{
-			//tutaj nale¿y zaimplementowaæ stworzenie ka¿dego dodanego state'a
+			//tutaj naleï¿½y zaimplementowaï¿½ stworzenie kaï¿½dego dodanego state'a
 		case GAME_STATE_GAME:
 			currentState = new Game();
 			stateID = GAME_STATE_GAME;
 			break;
 			
 		case GAME_STATE_MAIN_MENU:
-			if (sleepedState != nullptr)	//sprawdzam czy nie istnieje uœpiony state(przypadek, gdy przechodzi siê do menu z menu pauzy)
+			if (sleepedState != nullptr)	//sprawdzam czy nie istnieje uï¿½piony state(przypadek, gdy przechodzi siï¿½ do menu z menu pauzy)
 			{
 				delete sleepedState;
 				sleepedState = nullptr;
@@ -51,12 +51,12 @@ void GameState::changeState()
 			break;*/
 
 		case GAME_STATE_PAUSE_MENU:
-			sleepedState = currentState;	//usypiam grê
-			currentState = new	PauseMenu();//tworzê state menu pauzy
+			sleepedState = currentState;	//usypiam grï¿½
+			currentState = new	PauseMenu();//tworzï¿½ state menu pauzy
 			stateID = GAME_STATE_PAUSE_MENU;
 			break;
 
-		case GAME_STATE_RESTUME:			//przywracam uœpion¹ grê 
+		case GAME_STATE_RESTUME:			//przywracam uï¿½pionï¿½ grï¿½ 
 			currentState = sleepedState;
 			sleepedState = nullptr;
 			stateID = GAME_STATE_GAME;
@@ -105,7 +105,7 @@ GameStates GameState::getStateID()
 	return stateID;
 }
 
-//funkcja inicjalizuj¹ca(jako parametr podaje siê wskaŸnik do pocz¹tkowego state'a
+//funkcja inicjalizujï¿½ca(jako parametr podaje siï¿½ wskaï¿½nik do poczï¿½tkowego state'a
 //GameState::init(new Game())
 void GameState::init(GameState* initialState, sf::RenderWindow* newWindow)
 {
@@ -113,20 +113,20 @@ void GameState::init(GameState* initialState, sf::RenderWindow* newWindow)
 	currentState = initialState;
 }
 
-//getter do currentState potrzebny, aby by³o mo¿na manipulowaæ na 
+//getter do currentState potrzebny, aby byï¿½o moï¿½na manipulowaï¿½ na 
 GameState& GameState::getCurrentState()
 {
 	return *currentState;
 }
 
-//sprz¹tanie po ostatnim state'cie
+//sprzï¿½tanie po ostatnim state'cie
 void GameState::freeResources()
 {
 	//uwolnienie ostatniego state'a
 	if (currentState != nullptr)
 		delete currentState;
 
-	//uwolnienie uœpionego state'a
+	//uwolnienie uï¿½pionego state'a
 	if (sleepedState != nullptr)
 		delete sleepedState;
 }

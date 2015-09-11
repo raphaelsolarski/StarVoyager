@@ -1,4 +1,4 @@
-//plik implementuj¹cy klasê przeciwnika
+//plik implementujï¿½cy klasï¿½ przeciwnika
 #include <iostream>
 #include "enemy.h"
 #include "constants.h"
@@ -6,13 +6,13 @@
 //konstruktor
 Enemy::Enemy(sf::Vector2f position)
 {
-	//ustawiam pozycjê startow¹
+	//ustawiam pozycjï¿½ startowï¿½
 	setPosition(position);
 
 	//ustawiam pole size
 	size = ENEMY_SIZE;
 
-	//zerujê cooldown
+	//zerujï¿½ cooldown
 	fireCooldown = 0;
 }
 
@@ -25,26 +25,26 @@ sf::Vector2i Enemy::getSize()
 //update pozycji przeciwnika
 bool Enemy::update()
 {
-	//przesuwam przeciwnika w dó³
+	//przesuwam przeciwnika w dï¿½ï¿½
 	move(sf::Vector2f(0, ENEMY_SPEED));
 
-	//sprawdzam czy przeciwnik opóœci³ mapê
+	//sprawdzam czy przeciwnik opï¿½ï¿½ciï¿½ mapï¿½
 	if (getPosition().y >= SCREEN_HEIGHT)
-	{	//opóœci³
+	{	//opï¿½ï¿½ciï¿½
 		return false;
 	}
 
-	//nie opóœci³
+	//nie opï¿½ï¿½ciï¿½
 	return true;
 }
 
-//strza³ przeciwnika, zwraca obiekt pocisku
+//strzaï¿½ przeciwnika, zwraca obiekt pocisku
 Missile Enemy::fire()
 {
-	//zwiêkszam cooldown
+	//zwiï¿½kszam cooldown
 	fireCooldown = ENEMY_COOLDOWN;
 
-	//tworzê obiekt pocisku i zwracam go caller'owi
+	//tworzï¿½ obiekt pocisku i zwracam go caller'owi
 	return Missile(sf::Vector2f(getPosition().x + 20, getPosition().y + 36), MISSILE_SIZE, MISSILE_SPEED, sf::Vector2f(0, 1.0f));
 }
 
@@ -54,7 +54,7 @@ int Enemy::getFireCooldown()
 	return fireCooldown;
 }
 
-//metoda, której wywo³anie zmniejsza cooldown o jedn¹ klatkê
+//metoda, ktï¿½rej wywoï¿½anie zmniejsza cooldown o jednï¿½ klatkï¿½
 void Enemy::reduceCooldown()
 {
 	if (fireCooldown > 0)

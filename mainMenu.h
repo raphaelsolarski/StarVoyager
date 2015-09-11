@@ -16,7 +16,7 @@ private:
 	std::vector<sf::Sprite> interactiveElements;
 	unsigned int currentOption;
 	sf::Text logoText;
-	sf::Texture backgroundTexture;	//tekstura t³a
+	sf::Texture backgroundTexture;	//tekstura tï¿½a
 	sf::Sprite firstBackground;
-	sf::Sprite secondBackground;	//t³o wyœwietlam korzystaj¹c z dwóch sprite'ów
+	sf::Sprite secondBackground;	//tï¿½o wyï¿½wietlam korzystajï¿½c z dwï¿½ch sprite'ï¿½w
 };

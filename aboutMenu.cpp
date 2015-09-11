@@ -4,38 +4,38 @@
 //konstruktor
 AboutMenu::AboutMenu()
 {
-	//wczytujê tekstury przycisków
+	//wczytujï¿½ tekstury przyciskï¿½w
 	if (!buttonsTexture.loadFromFile("Graphics/aboutMenuButtons.png"))
 		std::cout << "aboutMenuButtons.png loading failed" << std::endl;
 
-	//wczytujê font
+	//wczytujï¿½ font
 	if (!metalLord.loadFromFile("metalLord.ttf"))
 		std::cout << "metalLord.ttf loading failed" << std::endl;
 
-	//t³o
+	//tï¿½o
 	if (!backgroundTexture.loadFromFile("Graphics/background.png"))
 		std::cout << "background.png loading failed" << std::endl;
 
-	//przygotowujê mapê
+	//przygotowujï¿½ mapï¿½
 	firstBackground.setTexture(backgroundTexture);
 	firstBackground.setPosition(firstBackgroundPosition);
 
 	secondBackground.setTexture(backgroundTexture);
 	secondBackground.setPosition(secondBackgroundPosition);
 
-	//przygotowujê logo text
+	//przygotowujï¿½ logo text
 	logoText.setFont(metalLord);
 	logoText.setCharacterSize(75);
 	logoText.setPosition(sf::Vector2f(90, 50));
 	logoText.setString(sf::String("star voyager"));
 
-	//przygotowujê about text
+	//przygotowujï¿½ about text
 	aboutText.setFont(metalLord);
 	aboutText.setCharacterSize(25);
 	aboutText.setPosition(sf::Vector2f(180, 200));
 	aboutText.setString(sf::String("This game was developed \n     by Raphael solarski \nsolarski.rafal@gmail.com"));
 	
-	//domyœlnie wybrana jest opcja na samej górze menu
+	//domyï¿½lnie wybrana jest opcja na samej gï¿½rze menu
 	currentOption = 0;
 
 	//przycisk "BACK"
@@ -53,20 +53,20 @@ void AboutMenu::handleEvents()
 
 	while (window->pollEvent(event))
 	{
-		//zamkniêto okno
+		//zamkniï¿½to okno
 		if (event.type == sf::Event::Closed)
 			window->close();
 
 		//klawiatura
 		else if (event.type == sf::Event::KeyPressed)
 		{
-			//strza³ka w dó³
+			//strzaï¿½ka w dï¿½ï¿½
 			if (event.key.code == sf::Keyboard::Down)
 			{
 				/*if (currentOption < 0)
 					currentOption++;*/
 			}
-			//strza³ka w górê
+			//strzaï¿½ka w gï¿½rï¿½
 			else if (event.key.code == sf::Keyboard::Up)
 			{
 				/*if (currentOption > 0)
@@ -87,13 +87,13 @@ void AboutMenu::handleEvents()
 
 void AboutMenu::logic()
 {
-	//sprawdzam czy okno nie zosta³o zamkniête
+	//sprawdzam czy okno nie zostaï¿½o zamkniï¿½te
 	if (!window->isOpen())
 	{
 		setNextState(GAME_STATE_EXIT);
 	}
 
-	//aktualizujê tekstury przycisków
+	//aktualizujï¿½ tekstury przyciskï¿½w
 	for (unsigned int i = 0; i < interactiveElements.size(); i++)
 	{
 		if (i == currentOption)
@@ -108,7 +108,7 @@ void AboutMenu::logic()
 		}
 	}
 
-	//przesuwam mapê w dó³
+	//przesuwam mapï¿½ w dï¿½ï¿½
 	if (secondBackgroundPosition.y == 0)
 		firstBackgroundPosition.y = -1600.0;
 
@@ -123,20 +123,20 @@ void AboutMenu::logic()
 
 void AboutMenu::render()
 {
-	//rysujê t³o
+	//rysujï¿½ tï¿½o
 	window->draw(firstBackground);
 	window->draw(secondBackground);
 
-	//rysujê przyciski
+	//rysujï¿½ przyciski
 	for (unsigned int i = 0; i < interactiveElements.size(); i++)
 	{
 		window->draw(interactiveElements[i]);
 	}
 
-	//rysujê tekst o twórcy
+	//rysujï¿½ tekst o twï¿½rcy
 	window->draw(aboutText);
 
-	//rysujê logo text
+	//rysujï¿½ logo text
 	window->draw(logoText);
 
 	window->display();

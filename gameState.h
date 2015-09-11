@@ -1,24 +1,24 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
-//typ okreœlaj¹cy wszystkie stany gry
-//jeœli dodajesz nowy stan to musisz go tutaj uwzglêdniæ
+//typ okreï¿½lajï¿½cy wszystkie stany gry
+//jeï¿½li dodajesz nowy stan to musisz go tutaj uwzglï¿½dniï¿½
 enum GameStates
 {
 	GAME_STATE_NULL,
-	GAME_STATE_RESTUME,		//state, który rozkazuje przywróciæ uœpion¹ grê
+	GAME_STATE_RESTUME,		//state, ktï¿½ry rozkazuje przywrï¿½ciï¿½ uï¿½pionï¿½ grï¿½
 	GAME_STATE_MAIN_MENU,
-	//GAME_STATE_LOADING_MENU,	//nie wykorzystujê tego puki co
+	//GAME_STATE_LOADING_MENU,	//nie wykorzystujï¿½ tego puki co
 	GAME_STATE_PAUSE_MENU,
 	GAME_STATE_LEVEL_FINISHED_MENU,
-	GAME_STATE_DEFEAT_MENU,		//menu pora¿ki
+	GAME_STATE_DEFEAT_MENU,		//menu poraï¿½ki
 	GAME_STATE_ABOUT_MENU,
 	GAME_STATE_SCORES_MENU,
 	GAME_STATE_GAME,
 	GAME_STATE_EXIT
 };
 
-//g³ówna klasa GameState po której bêdzie dziedziczyæ ka¿da klasa state'a
+//gï¿½ï¿½wna klasa GameState po ktï¿½rej bï¿½dzie dziedziczyï¿½ kaï¿½da klasa state'a
 class GameState
 {
 public:
@@ -38,8 +38,8 @@ protected:
 	static GameStates stateID;
 	static GameStates nextState;
 	static GameState *currentState;
-	static GameState *sleepedState;	//wskaŸnik do uœpionego state'a (potrzebne dla menu pauzy);
-	static sf::RenderWindow * window;	//wskaŸnik do okna gry(wspólnego dla wszystkich state'ów)	
-	static sf::Vector2f firstBackgroundPosition;	//oba pola s¹ potrzebne do p³ynnego przechodzenia miêdzy oknami menu
+	static GameState *sleepedState;	//wskaï¿½nik do uï¿½pionego state'a (potrzebne dla menu pauzy);
+	static sf::RenderWindow * window;	//wskaï¿½nik do okna gry(wspï¿½lnego dla wszystkich state'ï¿½w)	
+	static sf::Vector2f firstBackgroundPosition;	//oba pola sï¿½ potrzebne do pï¿½ynnego przechodzenia miï¿½dzy oknami menu
 	static sf::Vector2f secondBackgroundPosition;	
 };

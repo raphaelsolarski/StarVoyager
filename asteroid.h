@@ -1,4 +1,4 @@
-//plik nag³ówkowy klasy asteroidy
+//plik nagï¿½ï¿½wkowy klasy asteroidy
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "collidable.h"
@@ -7,8 +7,8 @@ class Asteroid : public Collidable
 {
 public:
 	Asteroid(sf::Vector2f position);	//konstruktor
-	sf::Vector2i getSize();	//metoda zwracaj¹ca rozmiar asteroidy
-	bool update();			//przemieszczenie asteroidy, zwraca false, gdy asteroida poza map¹
+	sf::Vector2i getSize();	//metoda zwracajï¿½ca rozmiar asteroidy
+	bool update();			//przemieszczenie asteroidy, zwraca false, gdy asteroida poza mapï¿½
 private:
 	sf::Vector2i size;				//rozmiar asteroidy
 	//int animationFrameCounter;			//counter potrzebny do animacji asteroidy

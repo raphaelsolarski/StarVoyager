@@ -4,29 +4,29 @@
 //konstruktor
 PauseMenu::PauseMenu()
 {
-	//ustawienie domyœlnej opcji
+	//ustawienie domyï¿½lnej opcji
 	currentOption = 0;
 
 	//wczytanie tekstur
 	if (!buttonsTexture.loadFromFile("Graphics/pauseMenuButtons.png"))
 		std::cout << "pauseMenuButtons.png loading failed" << std::endl;
 
-	//wczytujê font
+	//wczytujï¿½ font
 	if (!metalLord.loadFromFile("metalLord.ttf"))
 		std::cout << "metalLord.ttf loading failed" << std::endl;
 
-	//t³o
+	//tï¿½o
 	if (!backgroundTexture.loadFromFile("Graphics/background.png"))
 		std::cout << "background.png loading failed" << std::endl;
 
-	//przygotowujê mapê
+	//przygotowujï¿½ mapï¿½
 	firstBackground.setTexture(backgroundTexture);
 	firstBackground.setPosition(firstBackgroundPosition);
 
 	secondBackground.setTexture(backgroundTexture);
 	secondBackground.setPosition(secondBackgroundPosition);
 
-	//przygotowujê logo text
+	//przygotowujï¿½ logo text
 	logoText.setFont(metalLord);
 	logoText.setCharacterSize(75);
 	logoText.setPosition(sf::Vector2f(90, 50));
@@ -103,13 +103,13 @@ void PauseMenu::handleEvents()
 
 void PauseMenu::logic()
 {
-	//sprawdzam czy okno nie zosta³o zamkniête
+	//sprawdzam czy okno nie zostaï¿½o zamkniï¿½te
 	if (!window->isOpen())
 	{
 		setNextState(GAME_STATE_EXIT);
 	}
 
-	//aktualizujê tekstury przycisków
+	//aktualizujï¿½ tekstury przyciskï¿½w
 	for (unsigned int i = 0; i < interactiveElements.size(); i++)
 	{
 		if (i == currentOption)
@@ -124,7 +124,7 @@ void PauseMenu::logic()
 		}
 	}
 
-	//przesuwam mapê w dó³
+	//przesuwam mapï¿½ w dï¿½ï¿½
 	if (secondBackgroundPosition.y == 0)
 		firstBackgroundPosition.y = -1600.0;
 
@@ -145,7 +145,7 @@ void PauseMenu::render()
 		window->draw(interactiveElements[i]);
 	}
 
-	//rysujê logo text
+	//rysujï¿½ logo text
 	window->draw(logoText);
 
 	window->display();

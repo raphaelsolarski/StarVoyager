@@ -28,7 +28,7 @@ int main()
 		//RENDER
 		GameState::getCurrentState().render();
 
-		//Stabilizacja fps'ów
+		//Stabilizacja fps'ï¿½w
 		if (clock.getElapsedTime().asMilliseconds() < 1000 / FRAMES_PER_SECOND)
 		{
 			sf::sleep(sf::milliseconds((1000 / FRAMES_PER_SECOND) - clock.getElapsedTime().asMilliseconds()));

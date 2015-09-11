@@ -3,19 +3,19 @@
 
 bool Collidable::checkCollision(Collidable *obj)
 {
-	//sprawdzam czy dosz³o do kolizji -- d³ugi warunek
+	//sprawdzam czy doszï¿½o do kolizji -- dï¿½ugi warunek
 	if (getPosition().x <= obj->getPosition().x + obj->getSize().x &&
 		getPosition().x + getSize().x >= obj->getPosition().x &&
 		getPosition().y <= obj->getPosition().y + obj->getSize().y &&
 		getPosition().y + getSize().y >= obj->getPosition().y)
 	{
-		//dosz³o do kolizji
+		//doszï¿½o do kolizji
 		std::cout << "Collision" << std::endl;
 		return true;
 	}
 	else
 	{
-		//nie dosz³o do kolizji
+		//nie doszï¿½o do kolizji
 		return false;
 	}
 }

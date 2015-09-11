@@ -1,4 +1,4 @@
-//plik nag³ówkowy klasy pocisku
+//plik nagï¿½ï¿½wkowy klasy pocisku
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "collidable.h"
@@ -8,12 +8,12 @@ class Missile : public Collidable
 {
 public:
 	Missile(sf::Vector2f position, sf::Vector2i size, float speed, sf::Vector2f direction);	//konstruktor
-	sf::Vector2i getSize();	//metoda zwracaj¹ca rozmiar pocisku
-	float getSpeed();		//metoda zwracaj¹ca szybkoœæ pocisku(pociski mog¹ mieæ ró¿n¹ prêdkoœc)
-	bool update();			//metoda aktualizuj¹ca pozycjê pocisku i zwracaj¹ca false w przypadku gdy pocisk wylecia³ za mapê
+	sf::Vector2i getSize();	//metoda zwracajï¿½ca rozmiar pocisku
+	float getSpeed();		//metoda zwracajï¿½ca szybkoï¿½ï¿½ pocisku(pociski mogï¿½ mieï¿½ rï¿½ï¿½nï¿½ prï¿½dkoï¿½c)
+	bool update();			//metoda aktualizujï¿½ca pozycjï¿½ pocisku i zwracajï¿½ca false w przypadku gdy pocisk wyleciaï¿½ za mapï¿½
 private:
 	sf::Vector2i size;	//rozmiar pocisku
-	float speed;		//prêdkoœæ pocisku
+	float speed;		//prï¿½dkoï¿½ï¿½ pocisku
 	sf::Vector2f direction;	//kierunek lotu pocisku
 	sf::Texture missileTexture;	//tekstura pocisku
 };

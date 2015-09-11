@@ -1,4 +1,4 @@
-//plik spinaj¹cy wszystkie sta³e wykorzystywane w grze
+//plik spinajï¿½cy wszystkie staï¿½e wykorzystywane w grze
 #pragma once
 #include <SFML/Graphics.hpp>
 
@@ -6,28 +6,28 @@
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
-//docelowa liczba klatek na sekundê
+//docelowa liczba klatek na sekundï¿½
 const int FRAMES_PER_SECOND = 60;
 
 //player
 const int PLAYER_SIZE_X = 41;
 const int PLAYER_SIZE_Y = 47;
 const float PLAYER_SPEED = 7.0f;
-const int PLAYER_COOLDOWN = 30;		//parametr okreœlaj¹cy co ile klatek mo¿e zostaæ oddany strza³
+const int PLAYER_COOLDOWN = 30;		//parametr okreï¿½lajï¿½cy co ile klatek moï¿½e zostaï¿½ oddany strzaï¿½
 
 //enemy
-const float ENEMY_SPEED = 4.0f;	//prêdkoœæ z jak¹ przeciwnicy lec¹.
+const float ENEMY_SPEED = 4.0f;	//prï¿½dkoï¿½ï¿½ z jakï¿½ przeciwnicy lecï¿½.
 const sf::Vector2i ENEMY_SIZE = sf::Vector2i(43, 36);
-const int ENEMY_COOLDOWN = 30;		//parametr okreœlaj¹cy co ile klatek mo¿e zostaæ oddany strza³
+const int ENEMY_COOLDOWN = 30;		//parametr okreï¿½lajï¿½cy co ile klatek moï¿½e zostaï¿½ oddany strzaï¿½
 
 //asteroid
-const float ASTEROID_SPEED = 4.0f;	//prêdkoœæ asteroid(na klatkê).
+const float ASTEROID_SPEED = 4.0f;	//prï¿½dkoï¿½ï¿½ asteroid(na klatkï¿½).
 const sf::Vector2i ASTEROID_SIZE = sf::Vector2i(48, 48);
 
 //missile
-const float MISSILE_SPEED = 7.0f;	//prêdkoœæ lotu pocisków
-const sf::Vector2i MISSILE_SIZE = sf::Vector2i(3, 32);	//rozmiar przycisków
+const float MISSILE_SPEED = 7.0f;	//prï¿½dkoï¿½ï¿½ lotu pociskï¿½w
+const sf::Vector2i MISSILE_SIZE = sf::Vector2i(3, 32);	//rozmiar przyciskï¿½w
 
 //scores
-const int SCORES_PER_ASTEROID = 25;	//ile punktów siê otrzymuje za zniszczenie asteroidy
-const int SCORES_PER_ENEMY = 50;		//ile punktów siê otrzymuje za znisczenie przeciwnika
+const int SCORES_PER_ASTEROID = 25;	//ile punktï¿½w siï¿½ otrzymuje za zniszczenie asteroidy
+const int SCORES_PER_ENEMY = 50;		//ile punktï¿½w siï¿½ otrzymuje za znisczenie przeciwnika

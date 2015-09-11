@@ -23,22 +23,22 @@ private:
 	sf::Texture missileTexture;		//tekstura pocisku
 	sf::Texture heartTexture;		//tekstura serduszka
 	sf::Sprite* livesSprites;		//sprite serduszek
-	std::vector<Missile> enemyMissiles;	//vektor zawieraj¹cy wszystkie pociski przeciwników na mapie
-	std::vector<Missile> playerMissiles;//vektor zawieraj¹cy wszystkie pociski gracza na mapie
-	std::vector<Enemy> enemies;		//vektor zawieraj¹cy wszystkich przeciwników na mapie
-	std::vector<Asteroid> asteroids;	//vektor zawieraj¹cy wszystkie asteroidy na mapie
-	sf::Texture backgroundTexture;	//tekstura t³a
+	std::vector<Missile> enemyMissiles;	//vektor zawierajï¿½cy wszystkie pociski przeciwnikï¿½w na mapie
+	std::vector<Missile> playerMissiles;//vektor zawierajï¿½cy wszystkie pociski gracza na mapie
+	std::vector<Enemy> enemies;		//vektor zawierajï¿½cy wszystkich przeciwnikï¿½w na mapie
+	std::vector<Asteroid> asteroids;	//vektor zawierajï¿½cy wszystkie asteroidy na mapie
+	sf::Texture backgroundTexture;	//tekstura tï¿½a
 	sf::Sprite firstBackground;
-	sf::Sprite secondBackground;	//t³o wyœwietlam korzystaj¹c z dwóch sprite'ów
-	sf::Font scoresFont;			//font potrzebny do wyœwietlania liczby punktów
+	sf::Sprite secondBackground;	//tï¿½o wyï¿½wietlam korzystajï¿½c z dwï¿½ch sprite'ï¿½w
+	sf::Font scoresFont;			//font potrzebny do wyï¿½wietlania liczby punktï¿½w
 	sf::Text scoresText;			//tekst "SCORES: 1234"
 	unsigned int scores;	//punkty
 
-	//modu³ wczytywania mapy
-	unsigned long rowsInMap;	//pole okreœlaj¹ca z ilu wierszy sk³ada siê gra(gdy zostanie osi¹gniêty ostatni to gra siê koñczy)
-	void loadRow();			//funkcja wczytuj¹ca kolejny wiersz
-	std::ifstream mapFile;	//obiekt strumienia s³u¿¹cy do wczytywania danych z pliku mapy
-	unsigned long currentRow;	//licznik wierszy(do modu³u wczytuj¹cego przeciwników i asteroidy)
-	unsigned long nextRowInFile;	//zmienna zawieraj¹ca numer wiersza na jakim siê zatrzyma³ parser
-	int framesBetweenRowsCounter;	//licznik licz¹cy ile minê³o klatek od ostatniego wczytania wiersza
+	//moduï¿½ wczytywania mapy
+	unsigned long rowsInMap;	//pole okreï¿½lajï¿½ca z ilu wierszy skï¿½ada siï¿½ gra(gdy zostanie osiï¿½gniï¿½ty ostatni to gra siï¿½ koï¿½czy)
+	void loadRow();			//funkcja wczytujï¿½ca kolejny wiersz
+	std::ifstream mapFile;	//obiekt strumienia sï¿½uï¿½ï¿½cy do wczytywania danych z pliku mapy
+	unsigned long currentRow;	//licznik wierszy(do moduï¿½u wczytujï¿½cego przeciwnikï¿½w i asteroidy)
+	unsigned long nextRowInFile;	//zmienna zawierajï¿½ca numer wiersza na jakim siï¿½ zatrzymaï¿½ parser
+	int framesBetweenRowsCounter;	//licznik liczï¿½cy ile minï¿½ï¿½o klatek od ostatniego wczytania wiersza
 };

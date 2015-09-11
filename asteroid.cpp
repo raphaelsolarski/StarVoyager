@@ -1,4 +1,4 @@
-//plik implementuj¹cy klasê asteroidy
+//plik implementujï¿½cy klasï¿½ asteroidy
 #include <iostream>
 #include "asteroid.h"
 #include "constants.h"
@@ -6,21 +6,21 @@
 //konstruktor
 Asteroid::Asteroid(sf::Vector2f position)
 {
-	//ustawiam pocz¹tkow¹ klatkê animacji
+	//ustawiam poczï¿½tkowï¿½ klatkï¿½ animacji
 	//animationFrameCounter = 0;
 	//animationCounter = 0;
 
-	//ustawiam pozycjê startow¹
+	//ustawiam pozycjï¿½ startowï¿½
 	setPosition(position);
 
-	//settujê pola klasy
+	//settujï¿½ pola klasy
 	this->size = ASTEROID_SIZE;
 }
 
-//przemieszczenie asteroidy, zwraca false, gdy asteroida poza map¹
+//przemieszczenie asteroidy, zwraca false, gdy asteroida poza mapï¿½
 bool Asteroid::update()
 {
-	/*//ustawiam klatkê animacji
+	/*//ustawiam klatkï¿½ animacji
 	if (animationFrameCounter == 2)
 	{
 		animationCounter = (animationCounter + 1) % 16;
@@ -32,16 +32,16 @@ bool Asteroid::update()
 		animationFrameCounter++;
 	}*/
 
-	//przemieszcza ska³kê w dó³
+	//przemieszcza skaï¿½kï¿½ w dï¿½ï¿½
 	move(sf::Vector2f(0, ASTEROID_SPEED));
 
-	//sprawdzam czy asteroida opuœci³a mapê
+	//sprawdzam czy asteroida opuï¿½ciï¿½a mapï¿½
 	if (getPosition().y >= SCREEN_HEIGHT)
 	{
 		return false;
 	}
 
-	//asteroida wci¹¿ jest na mapie wiêc zwracam true
+	//asteroida wciï¿½ï¿½ jest na mapie wiï¿½c zwracam true
 	return true;
 }
 
